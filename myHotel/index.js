@@ -6,7 +6,7 @@ var eventConfig = require("../config");
 
 module.exports = class Hotels extends EventEmitter{
 
-    constractor (hotelName , HotelLoc){
+    constructor (hotelName , hotelLoc){
         super();
         this.name = hotelName;
         this.loc = hotelLoc;
@@ -21,12 +21,12 @@ module.exports = class Hotels extends EventEmitter{
         }else{
             this.starAmount = 0;
         }
-        this.emit(eventConfig.starRankingChange);
+        this.emit(eventConfig.Change);
     }
 
     addStar(){
         this.starAmount ++;
-        this.emit(eventConfig.starRankingChange);
+        this.emit(eventConfig.Change);
     }
 
     minusLike(){
@@ -35,13 +35,13 @@ module.exports = class Hotels extends EventEmitter{
         }else{
             this.like = 0;
         }
-        this.emit(eventConfig.likeAmountChange);
+        this.emit(eventConfig.Change);
 
     }
 
         addLike(){
-        this.reviewAmount ++;
-        this.emit(eventConfig.reviewAmountChange);
+        this.likeAmout ++;
+        this.emit(eventConfig.Change);
     }
 
     minusReview(){
@@ -50,19 +50,19 @@ module.exports = class Hotels extends EventEmitter{
         }else{
             this.reviewAmount = 0;
         }
-        this.emit(eventConfig.reviewAmountChange);
+        this.emit(eventConfig.Change);
 
     }
 
     addReview(){
         this.reviewAmount ++;
-        this.emit(eventConfig.reviewAmountChange);
+        this.emit(eventConfig.Change);
     }
 
 
     hotelDetails(){
         var details;
-        details = "Hotel Name: " + this.name +" Hotel Location: " +this.loc + " Star Amnount: " +this.starAmount + "Review Amount: " +this.reviewAmount + "Like Amount: " + this.likeAmout ;
+        details = "Hotel Name: " + this.name +"\nHotel Location: " +this.loc + "\nStar Amnount: " +this.starAmount + "\nReview Amount: " +this.reviewAmount + " \nLike Amount: " + this.likeAmout +"\n\n\n" ;
 
         console.log(details)
     }

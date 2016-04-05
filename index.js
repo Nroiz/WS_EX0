@@ -1,17 +1,17 @@
 var http = require("http");
 var Hotels = require("./myHotel");
-var eventsConfig = require("./config")
+var eventConfig = require("./config")
 
 //Creating a hotel.
 var my_hotel = new Hotels("Berashit" , "Isreal");
 
-my_hotel.on(eventConfig.likeAmountChange , my_hotel.hotelDetails);
+my_hotel.on(eventConfig.Change , my_hotel.hotelDetails);
+
 
 //Adding and delete hotel reviews/likes/stars
 my_hotel.addStar();
 my_hotel.addStar();
 my_hotel.addStar();
-my_hotel.addReview();
 my_hotel.addLike();
 my_hotel.addLike();
 my_hotel.addLike();
