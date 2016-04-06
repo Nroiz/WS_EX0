@@ -17,7 +17,9 @@ my_hotel.addLike();
 my_hotel.addLike();
 my_hotel.minusLike();
 
+
 http.createServer(function(req, res){
     res.writeHeader(200 , {'content-Type': 'text/plain'});
+    res.write(my_hotel.getMessage());
     res.end();
 }).listen(8080);

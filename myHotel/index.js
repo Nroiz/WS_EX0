@@ -13,6 +13,7 @@ module.exports = class Hotels extends EventEmitter{
         this.starAmount = 0;
         this.likeAmout = 0;
         this.reviewAmount = 0;
+        this.messages = "";
     }
 
     minusStar(){
@@ -59,14 +60,15 @@ module.exports = class Hotels extends EventEmitter{
         this.emit(eventConfig.Change);
     }
 
+    getMessage(){
+        return this.messages;
+    }
 
     hotelDetails(){
         var details;
         details = "Hotel Name: " + this.name +"\nHotel Location: " +this.loc + "\nStar Amnount: " +this.starAmount + "\nReview Amount: " +this.reviewAmount + " \nLike Amount: " + this.likeAmout +"\n\n\n" ;
-
+        this.messages += details;
         console.log(details)
     }
-
-
 
 }
